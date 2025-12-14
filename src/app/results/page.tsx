@@ -33,7 +33,7 @@ export default function Results() {
   try {
     setIsLoading(true);
 
-    const res = await fetch("/api/explain", {
+    const res = await fetch("/.netlify/functions/explain", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
