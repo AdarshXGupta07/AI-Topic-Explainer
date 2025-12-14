@@ -33,7 +33,7 @@ export default function Results() {
   try {
     setIsLoading(true);
 
-    const res = await fetch("/.netlify/functions/explain", {
+    const res = await fetch("/api/explain", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -201,7 +201,7 @@ export default function Results() {
                 </div>
               </div>
             ) : (
-              <div className="text-lg text-gray-100 whitespace-pre-wrap relative z-10">
+              <div className="text-lg text-gray-100 whitespace-pre-wrap relative z-10 h-full overflow-y-auto custom-scrollbar">
                 {response || 'No response generated'}
               </div>
             )}
