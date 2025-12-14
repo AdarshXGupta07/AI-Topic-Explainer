@@ -32,8 +32,8 @@ export function PlaceholdersAndVanishInputDemo() {
   };
   
   return (
-    <div className="h-[40rem] flex flex-col justify-center items-center">
-      <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
+    <div className="h-[30rem] sm:h-[35rem] md:h-[40rem] flex flex-col justify-center items-center px-4">
+      <h2 className="mb-6 sm:mb-10 md:mb-20 text-lg sm:text-xl md:text-5xl text-center dark:text-white text-black">
         Ask Aceternity UI Anything
       </h2>
       <div className="w-full mx-auto">

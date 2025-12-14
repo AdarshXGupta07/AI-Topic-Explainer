@@ -93,19 +93,19 @@ export default function Results() {
     <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a1a]/90 backdrop-blur-lg border-b border-[#333333]/50">
-        <div className="px-8 py-4 flex items-center justify-between">
-          <Link href="/" className="text-white font-bold text-xl">
-            ← Back to Home
+        <div className="px-4 sm:px-8 py-3 sm:py-4 flex items-center justify-between">
+          <Link href="/" className="text-white font-bold text-lg sm:text-xl">
+            ← Back
           </Link>
-          <h1 className="text-xl font-semibold">AI Results</h1>
-          <div className="w-20"></div>
+          <h1 className="text-lg sm:text-xl font-semibold">AI Results</h1>
+          <div className="w-12 sm:w-20"></div>
         </div>
       </nav>
 
       {/* Main Content - Split Screen */}
-      <div className="pt-20 h-screen flex relative">
-        {/* Running Border Animation */}
-        <div className="absolute left-1/2 top-20 bottom-0 w-1 z-10">
+      <div className="pt-16 sm:pt-20 min-h-screen flex flex-col lg:flex-row relative">
+        {/* Running Border Animation - Hidden on mobile */}
+        <div className="hidden lg:block absolute left-1/2 top-20 bottom-0 w-1 z-10">
           <div className="h-full w-full relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-50"></div>
             <div className="absolute top-0 w-full h-8 bg-gradient-to-b from-blue-500 to-transparent animate-pulse"></div>
@@ -117,9 +117,9 @@ export default function Results() {
         </div>
 
         {/* Left Panel - User Query */}
-        <div className="w-1/2 border-r border-gray-800 p-8 flex flex-col group">
-          <h2 className="text-2xl font-bold mb-6 text-gray-300 transition-all duration-500 group-hover:text-gray-100 group-hover:scale-105">Your Question</h2>
-          <div className="flex-1 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 rounded-lg p-6 border border-gray-600 shadow-2xl transition-all duration-500 group-hover:from-gray-700 group-hover:via-gray-800 group-hover:to-gray-700 group-hover:scale-102 group-hover:shadow-3xl">
+        <div className="w-full lg:w-1/2 lg:border-r lg:border-gray-800 p-4 sm:p-6 lg:p-8 flex flex-col group">
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-300 transition-all duration-500 group-hover:text-gray-100 group-hover:scale-105">Your Question</h2>
+          <div className="flex-1 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 rounded-lg p-4 sm:p-6 border border-gray-600 shadow-2xl transition-all duration-500 group-hover:from-gray-700 group-hover:via-gray-800 group-hover:to-gray-700 group-hover:scale-102 group-hover:shadow-3xl min-h-[300px]">
             {/* Metallic overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-gray-700/20 via-gray-600/10 to-gray-700/20 pointer-events-none rounded-lg"></div>
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent"></div>
@@ -127,7 +127,7 @@ export default function Results() {
             
             {isEditing ? (
               <div className="space-y-3 relative z-10">
-                <div className="text-lg text-gray-100 whitespace-pre-wrap">
+                <div className="text-base sm:text-lg text-gray-100 whitespace-pre-wrap">
                   {query || 'No question provided'}
                 </div>
                 
@@ -135,7 +135,7 @@ export default function Results() {
                   value={editedQuery}
                   onChange={(e) => setEditedQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  className="w-full h-32 bg-gray-700/50 border border-gray-600 rounded-lg p-3 text-gray-100 resize-none focus:outline-none focus:border-gray-500 focus:ring-2 focus:ring-gray-500/20"
+                  className="w-full h-24 sm:h-32 bg-gray-700/50 border border-gray-600 rounded-lg p-3 text-gray-100 resize-none focus:outline-none focus:border-gray-500 focus:ring-2 focus:ring-gray-500/20"
                   placeholder="Edit your question..."
                   autoFocus
                 />
@@ -160,7 +160,7 @@ export default function Results() {
             ) : (
               <div className="space-y-2 relative z-10">
                 <div 
-                  className="text-lg text-gray-100 whitespace-pre-wrap transition-all duration-300 group-hover:text-white cursor-pointer hover:bg-gray-700/30 rounded-lg p-2 -m-2"
+                  className="text-base sm:text-lg text-gray-100 whitespace-pre-wrap transition-all duration-300 group-hover:text-white cursor-pointer hover:bg-gray-700/30 rounded-lg p-2 -m-2"
                   onClick={handleEditClick}
                 >
                   {query || 'No question provided'}
@@ -175,9 +175,9 @@ export default function Results() {
         </div>
 
         {/* Right Panel - AI Response */}
-        <div className="w-1/2 p-8 flex flex-col">
-          <h2 className="text-2xl font-bold mb-6 text-gray-300">AI Response</h2>
-          <div className="flex-1 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 rounded-lg p-6 border border-gray-600 shadow-2xl relative overflow-hidden">
+        <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 flex flex-col">
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-300">AI Response</h2>
+          <div className="flex-1 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 rounded-lg p-4 sm:p-6 border border-gray-600 shadow-2xl relative overflow-hidden min-h-[300px]">
             {/* Metallic overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-gray-700/20 via-gray-600/10 to-gray-700/20 pointer-events-none"></div>
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent"></div>
@@ -201,7 +201,7 @@ export default function Results() {
                 </div>
               </div>
             ) : (
-              <div className="text-lg text-gray-100 whitespace-pre-wrap relative z-10 h-full overflow-y-auto custom-scrollbar">
+              <div className="text-base sm:text-lg text-gray-100 whitespace-pre-wrap relative z-10 h-full overflow-y-auto custom-scrollbar">
                 {response || 'No response generated'}
               </div>
             )}
